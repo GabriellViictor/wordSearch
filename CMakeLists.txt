@@ -11,4 +11,8 @@ add_executable(Projetos_CLion
         LoadFile.h
         wordSearch.cpp
         wordSearch.h
+        Coordinates.cpp
+        Coordinates.h
+        ThreadPool.cpp
+        ThreadPool.h
 )
