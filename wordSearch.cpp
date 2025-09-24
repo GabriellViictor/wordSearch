@@ -40,6 +40,7 @@ wordSearch::wordSearch(int row, int col, const vector<string> &diagram, const ve
             }
         }
     }
+    //pool.~ThreadPool();
     //for (auto& thread : threads){
         //thread.join();
     //}

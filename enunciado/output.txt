@@ -619,7 +619,7 @@ fvprkoogpjbsgicsehfaffcbwqajwrolmgjgvvvbpmeofpjrsvfrgdswwuaisgulrkedqbdjdusmmkqv
 kuhnildviolepavtwgqusmqqsofawlrjjaatujsdthcepalcgvcmjfjjfamauektlnbcetljeshphffr
 dlugudlkrrdkiwfshbpuqtclmwmolmsvkhuompdrmitghhaobtwgtnskoensrenoghofbbvsmgpuchbi
 souqjhfvhudphuhbgdifsfiwnvmjgpttoihhdiutsplwccsvnvvkeijchssmpebijnsofvcbveairckh
-lkwefeikhakuevhaokindmkpmlwcgmiamckgskmowofhatLINUXfltqqfunaelbbisnsfjtlljkrceqo
+lkwefeikhakuevhaokindmkpmlwcgmiamckgskmowofhatlinufltqqfunaelbbisnsfjtlljkrceqo 
 rtobraowoopwpmrsomjrshidqlpmitvodrhgslemoknpnburhewllcdbvfsbtueomgavgcmcmnmrdbcm
 rrvnijdltwkiasuodpbeljnrageugdtuqdhvbsfsfpogqtrdabsgvrutcnlwmnduruvmidbdmtortpnk
 qcqkcirdkiskosmecqsvwrlaledlersaoumolwkgcudcigrbkqjghdnuwvevjwuurgbfgdajmmuwfaik
@@ -1008,6 +1008,6 @@ produtor - (455,58): baixo
 threads - (476,43): direita
 processo - (509,22): direita
 windows - (593,62): esquerda
-linux - (621,47): direita
 bloqueado - (755,13): baixo
 executando - (940,66): baixo
+linux: nao encontrado
