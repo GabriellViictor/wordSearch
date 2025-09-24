@@ -130,20 +130,7 @@ A opção do menu **“Exportar”** grava `./output.txt`.
 
 ---
 
-## 10) Melhorias futuras (fáceis de encaixar)
-
-1. **Particionamento por linhas/blocos**  
-   Enfileirar tarefas por “faixas” de linhas, e cada worker processa todas as palavras em seu bloco (menos overhead, melhor localidade de cache).
-2. **`byFirst` + `byLen`**  
-   Além da primeira letra, agrupar por tamanho da palavra para podar rapidamente posições que não comportam o comprimento.
-3. **Relatório com contadores**  
-   Mostrar “Encontradas: X | Restantes: Y” no menu/relatório.
-4. **Modo “parar ao encontrar”**  
-   Se cada palavra deve ser encontrada **uma** vez, pare a busca daquela palavra após a primeira ocorrência (economiza CPU).
-
----
-
-## 11) Mapeamento para os critérios de avaliação
+## 10) Mapeamento para os critérios de avaliação
 
 - **Funcionalidade**  
   Entrada/saída conforme enunciado; 8 direções; não encontradas listadas; validação e mensagens claras.
@@ -158,7 +145,7 @@ A opção do menu **“Exportar”** grava `./output.txt`.
 
 ---
 
-## 12) Estrutura dos arquivos
+## 11) Estrutura dos arquivos
 
 ```
 .
@@ -171,7 +158,7 @@ A opção do menu **“Exportar”** grava `./output.txt`.
 
 ---
 
-## 13) Créditos / Ambiente
+## 12) Créditos / Ambiente
 
 - C++17, compilado com `-O3 -pthread`.
 - Testado em Windows 10/11 (ANSI habilitado) e Linux (xterm/VT100).
