@@ -26,27 +26,27 @@ wordSearch::wordSearch(int row, int col, const vector<string> &diagram, const ve
     for (string i : words) {
         checklist[i] = false;
     }
+    // define a quantidade de threads
     ThreadPool pool(2);
-    //vector<thread> threads;
+
+    // o processo principal vasculha cada letra e abre uma thread quando necessario verificar se alguma palavra é formada
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
             for (const string& word : this->words) {
                 if (grid[i][j] != word[0]) {
                     continue;
                 }
-                pool.enqueue([this,i,j,word]{searchAllDir(i, j, word);});
-                //threads.emplace_back(&wordSearch::searchAllDir, this,i,j,word);
+                pool.enqueue([this,i,j,word] {
+                    searchAllDir(i, j, word);
+                    //cout<< this_thread::get_id() << endl;
+                });
                 //searchAllDir(i, j, word);
             }
         }
     }
-    //pool.~ThreadPool();
-    //for (auto& thread : threads){
-        //thread.join();
-    //}
-    //cout<<threads.size()<<endl;
 }
 
+// função para procurar em uma direção, sendo dx e dy responsaveis por determinar a direção
 void wordSearch::search(int x, int y, const string& word, const int dx, const int dy) {
     vector<Coordinates> foundwords;
     for (const char i : word) {
@@ -63,6 +63,8 @@ void wordSearch::search(int x, int y, const string& word, const int dx, const in
         foundwords.clear();
         return;
     }
+    // salva em checklist que a palavra foi encontrada e no vetor wordlist as coordenadas iniciais e a direção da palavra
+    // as coordenadas de letras que compõem palavras sao salvas em found
     checklist[word] = true;
     string lado;
     string alt;
@@ -89,7 +91,7 @@ void wordSearch::search(int x, int y, const string& word, const int dx, const in
         for (const Coordinates& c : foundwords) found.push_back(c);
     }
 }
-
+//mostra o vetor que contem todas as coordenadas de letras que compõem uma palavra
 void wordSearch::showFound() const {
     cout << "\n===== Palavras xdd =====\n";
     for (const auto &linha : found) {
@@ -97,7 +99,7 @@ void wordSearch::showFound() const {
     }
     cout << "====================\n";
 }
-
+ //mostra a lista com a coordenada inicial e a direção em que a palavra foi encontrada, e uma mensagem especial caso a palavra nao tenha sido encontrada
 void wordSearch::showList() const {
     cout << "\n===== Palavras xdd =====\n";
     for (const auto &linha : wordlist) {
@@ -110,14 +112,16 @@ void wordSearch::showList() const {
     }
     cout << "====================\n";
 }
-
+// função que gera arquivo de saida
 void wordSearch::output() const {
     ofstream fout;
     fout.open("D:/Projetos CLion/enunciado/output.txt");
     if (!fout.is_open()) {
         std::cerr << "Erro ao criar arquivo!" << std::endl;
     }else {
+        //coloca numero de linhas e colunas no arquivo
         fout << to_string(this->rows) + " " + to_string(this->cols) << endl;
+        // escreve o diagrama de novo, se determinada coordenada estiver no vetor found, escreve em maiúsculo
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 bool f = false;
@@ -134,19 +138,22 @@ void wordSearch::output() const {
             }
             fout << endl;
         }
+        // escreve as palavras que foram encotradas
         for (const auto &linha : wordlist) {
             fout << linha << endl;
         }
+        // escreve as palavras que nao foram encontradas
         for (const auto& word : checklist) {
             if (!word.second) {
                 fout << word.first + ": nao encontrado" << endl;
             }
         }
+        // finaliza a gravação
         fout.close();
         cout << "Arquivo Gravado com Sucesso." << endl;
     }
 }
-
+// função que busca em todas as direções
 void wordSearch::searchAllDir(int x, int y, const string& word) {
     search(x,y,word,1,1);
     search(x,y,word,1,0);
